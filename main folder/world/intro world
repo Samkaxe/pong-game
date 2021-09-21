@@ -1,0 +1,36 @@
+import greenfoot.*;
+
+/**
+ * Write a description of class IntroWorld here.
+ * 
+ * @author (team 15 ) 
+ * @version (a version number or a date)
+ */
+public class IntroWorld extends World
+{
+    private static final int WORLD_WIDTH = 800;
+    private static final int WORLD_HEIGHT = 400;
+    private GifImage myGif = new GifImage("intro.gif");
+    /**
+     * Constructor for objects of class IntroWorld.
+     */
+    public IntroWorld()
+    {
+        super(WORLD_WIDTH, WORLD_HEIGHT, 1); 
+        //Greenfoot.playSound("introworld.wav");
+    }
+    
+    
+    public void act()
+    {
+        String key = Greenfoot.getKey();
+        this.setBackground(myGif.getCurrentImage());
+        
+        if (key != null && key.equals("space"))
+        {
+            Greenfoot.setWorld(new Table());
+            
+        }
+    }
+    
+}
