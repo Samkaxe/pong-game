@@ -1,0 +1,45 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class MyWorld here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Table extends World
+{
+    // by writing the varibales here we make them public for the entire world 
+    // in order to make the ball detect the player 
+    
+ 
+    public Player player = new Player(); 
+    public Ai ai = new Ai();
+    private GifImage myGif = new GifImage("background.gif");
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    public Table()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+         
+        super(800, 400, 1);
+        //Greenfoot.setSpeed(50);
+        spawnPlayer();
+        Greenfoot.playSound("samkaxe.mp3");
+    }
+    
+    public void act(){
+        
+        this.setBackground(myGif.getCurrentImage());
+    }
+    
+    public void spawnPlayer(){
+        addObject(ai, 646, 182);
+        addObject(player, 32, 191);
+        Ball ball = new Ball(player);
+        addObject(ball, 326, 191);
+    }
+    
+    
+}
